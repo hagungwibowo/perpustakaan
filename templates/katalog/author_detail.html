@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+ 
+{% block content %} 
+  <p><strong>Firt Name:</strong> {{ author.first_name }}</p> <!-- author detail link not yet defined -->
+  <p><strong>Last Name:</strong> {{ author.last_name }}</p>
+  <p><strong>Date of Birth:</strong> {{ author.date_of_birth }}</p>
+  <p><strong>Date of Death:</strong> {{ author.date_of_death }}</p>  
+ 
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Detail Book</h4>
+ 
+    {% for copy in author.book_set.all %}
+      <hr>
+      <p><strong>Judul Buku:</strong> <a href="{{ copy.get_absolute_url }}">{{copy.title}}</a></p>
+    {% endfor %}
+  </div>
+{% endblock %}
